@@ -20,17 +20,21 @@
     <main>
       <section>
         <button type="button" class="btn btn-warning">Encuéntrame</button>
-        <input type="text" class="form-control" placeholder="Origen" aria-label="Origen" aria-describedby="basic-addon1">
-        <input type="text" class="form-control" placeholder="Destino" aria-label="Destino" aria-describedby="basic-addon1">
+        <input id="origin" type="text" class="form-control" placeholder="Origen" aria-label="Origen" aria-describedby="basic-addon1">
+        <input id="destination" type="text" class="form-control" placeholder="Destino" aria-label="Destino" aria-describedby="basic-addon1">
         <button type="button" class="btn btn-warning">Ruta</button> 
-        <img src="assets/images/map.jpeg" alt="mapa">
+        <!-- <img src="assets/images/map.jpeg" alt="mapa"> -->
+        <div id="map"></div>
+
       </section>
     </main>
 
     <footer>
       <p class="lead text-center">Copyright&copy;</p>
     </footer>
-
+    
+    <!-- API para Autocompletado y Maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH5Tt7Lo-IqMaKvW5e0x5ReYN9dMoiVho&libraries=places&callback=initMap" async defer></script>    
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script type="text/javascript" src="vendors/js/jquery-3.2.1.min.js"></script>

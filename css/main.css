@@ -1,0 +1,5 @@
+/*Style for the maps */
+div#map {
+  width: 50%;
+  height: 80vh;
+}
