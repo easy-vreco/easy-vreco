@@ -8,7 +8,7 @@ function initMap() {
     zoom: 15,
     center: coordinate
   });
-
+  
   // Autocompletado
   var inputOrigin = document.getElementById('origin');
   var inputDestination = document.getElementById('destination');
@@ -16,6 +16,9 @@ function initMap() {
   new google.maps.places.Autocomplete(inputOrigin);
   new google.maps.places.Autocomplete(inputDestination);
   
+  // Encuéntrame
+
+
   // Trazar ruta
   var myUbication = function(positionF) {
     latitudeCoord = positionF.coords.latitude;
@@ -31,11 +34,11 @@ function initMap() {
     marker = new google.maps.Marker({
       position: {lat: latitudeCoord,
         lng: longitudeCoord},
-      icon: iconBase,
       map: map,
+      icon: iconBase,
       animation: google.maps.Animation.BOUNCE
     });
-    map.setZoom(17);
+    map.setZoom(18);
     map.setCenter({lat: latitudeCoord,
       lng: longitudeCoord});
   };
@@ -43,7 +46,7 @@ function initMap() {
     window.alert('Tu navegador no soporta la API de geolocalizacion');
   };
 
-  function findRoute(event) {
+  function findMe(event) {
     event.preventDefault();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(myUbication, error);
@@ -74,9 +77,16 @@ function initMap() {
     marker.setMap(null);
   };
 
-  window.addEventListener('load', findRoute);
+  // window.addEventListener('load', findRoute);
+  window.addEventListener('load', findMe);
+
   document.getElementById('btn-route').addEventListener('click', function(event) {
     event.preventDefault();
     calcRoute(direccionService, direccionDisplay);
+  });
+
+  document.getElementById('btn-find').addEventListener('click', function(event) {
+    event.preventDefault();
+    findMe(event);
   });
 }
