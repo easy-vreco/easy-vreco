@@ -36,6 +36,7 @@ function initMap() {
         lng: longitudeCoord},
       map: map,
       icon: iconBase,
+      draggable: true,
       animation: google.maps.Animation.BOUNCE
     });
     map.setZoom(18);
