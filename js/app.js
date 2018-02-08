@@ -1,25 +1,75 @@
 // Mapa
 function initMap() {
-  let coordinate = {lat: -12.1191427,
+  var latitudeCoord, longitudeCoord, marker;
+  // Coordenadas lab
+  var coordinate = {lat: -12.1191427, 
     lng: -77.0349046};
-  let map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: coordinate
   });
-  
-  // Muestra la posicion segun las coordenadas mencionadas
-  let marker = new google.maps.Marker({
-    position: coordinate,
-    map: map
-  });
 
   // Autocompletado
-  let inputOrigin = document.getElementById('origin');
-  let inputDestination = document.getElementById('destination');
-
+  var inputOrigin = document.getElementById('origin');
+  var inputDestination = document.getElementById('destination');
+  
   new google.maps.places.Autocomplete(inputOrigin);
   new google.maps.places.Autocomplete(inputDestination);
-
+  
   // Trazar ruta
-  /* Aqui va codigo-------- */
+  var myUbication = function(positionF) {
+    latitudeCoord = positionF.coords.latitude;
+    longitudeCoord = positionF.coords.longitude;
+    
+    // Muestra la posicion segun las coordenadas mencionadas
+    marker = new google.maps.Marker({
+      position: {lat: latitudeCoord,
+        lng: longitudeCoord},
+      animation: google.maps.Animation.DROP,
+      map: map
+    });
+    map.setZoom(17);
+    map.setCenter({lat: latitudeCoord,
+      lng: longitudeCoord});
+  };
+  var error = function(error) {
+    window.alert('Tu navegador no soporta la API de geolocalizacion');
+  };
+
+  function findRoute(event) {
+    event.preventDefault();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(myUbication, error);
+    }
+  }
+
+  // Trazando ruta
+  var startPoint = document.getElementById('origin');
+  var endPoint = document.getElementById('destination');
+  new google.maps.places.Autocomplete(startPoint);
+  new google.maps.places.Autocomplete(endPoint);
+
+  var direccionService = new google.maps.DirectionsService;
+  var direccionDisplay = new google.maps.DirectionsRenderer;
+
+  var calcRoute = function(direccionService, direccionDisplay) {
+    var request = {
+      origin: startPoint.value,
+      destination: endPoint.value,
+      travelMode: 'DRIVING'
+    };
+    direccionService.route(request, function(result, status) {
+      if (status === 'OK') {
+        direccionDisplay.setDirections(result);
+      }
+    });
+    direccionDisplay.setMap(map);
+    marker.setMap(null);
+  };
+
+  window.addEventListener('load', findRoute);
+  document.getElementById('btn-route').addEventListener('click', function(event) {
+    event.preventDefault();
+    calcRoute(direccionService, direccionDisplay);
+  });
 }
