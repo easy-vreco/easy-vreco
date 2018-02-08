@@ -3,3 +3,21 @@ div#map {
   width: 50%;
   height: 80vh;
 }
+
+/* Styles for header */
+
+.gold {
+  background-color: #ffc107;
+}
+
+.navbar>.container, .navbar>.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-title {
+  color: #000;
+  font-size: 2em;
+  font-weight: 700;
+}
