@@ -21,12 +21,19 @@ function initMap() {
     latitudeCoord = positionF.coords.latitude;
     longitudeCoord = positionF.coords.longitude;
     
+    // Variable que encierra la dirección del marcador
+    var iconBase = {
+      url: 'http://www.mobipalma.mobi/wp-content/uploads/2016/03/iconos-14.png',
+      scaledSize: new google.maps.Size(30, 32)
+    };
+
     // Muestra la posicion segun las coordenadas mencionadas
     marker = new google.maps.Marker({
       position: {lat: latitudeCoord,
         lng: longitudeCoord},
-      animation: google.maps.Animation.DROP,
-      map: map
+      icon: iconBase,
+      map: map,
+      animation: google.maps.Animation.BOUNCE
     });
     map.setZoom(17);
     map.setCenter({lat: latitudeCoord,
