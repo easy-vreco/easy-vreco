@@ -1,6 +1,6 @@
 /*Style for the maps */
 div#map {
-  width: 50%;
+  width: 100%;
   height: 80vh;
 }
 
@@ -20,4 +20,32 @@ div#map {
   color: #000;
   font-size: 2em;
   font-weight: 700;
+}
+
+/* Styles for inputs and buttons */
+
+.section-container {
+  padding: 0;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  display: inline-block;
+  margin: 1.3em 1.3em;
+}
+
+.button {
+  margin: 0 1em;
+  font-weight: 500;
+}
+
+/* Styles for footer */
+
+.footer {
+  padding: 1.5em;
 }

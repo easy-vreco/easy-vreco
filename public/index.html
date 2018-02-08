@@ -16,7 +16,7 @@
     <!-- Encabezado -->
     <header>
       <nav class="navbar navbar-default gold">
-        <div class="container-fluid nav-flex-container">
+        <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand nav-title" href="#">
               <p>Maps</p>
@@ -28,17 +28,28 @@
     <!-- Contenido Principal -->
     <main>
       <section>
-        <button id="btn-find" type="button" class="btn btn-warning">Encuéntrame</button>
-        <input id="origin" type="text" class="form-control" placeholder="Origen" aria-label="Origen" aria-describedby="basic-addon1">
-        <input id="destination" type="text" class="form-control" placeholder="Destino" aria-label="Destino" aria-describedby="basic-addon1">
-        <button id="btn-route" type="button" class="btn btn-warning">Ruta</button> 
-        <!-- <img src="assets/images/map.jpeg" alt="mapa"> -->
-        <div id="map"></div>
+        <div class="container-fluid section-container">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="flex-container">
+                <button id="btn-find" type="button" class="btn btn-warning button">Encuéntrame</button>
+                <input id="origin" type="text" class="form-control input" placeholder="Origen" aria-label="Origen" aria-describedby="basic-addon1">
+                <input id="destination" type="text" class="form-control input" placeholder="Destino" aria-label="Destino" aria-describedby="basic-addon1">
+                <button id="btn-route" type="button" class="btn btn-warning button">Ruta</button> 
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
 
       </section>
     </main>
 
-    <footer>
+    <footer class="gold flex-container footer">
       <p class="lead text-center">Copyright&copy;</p>
     </footer>
     
