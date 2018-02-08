@@ -7,10 +7,17 @@ function initMap() {
     center: coordinate
   });
   
+  // Variable que encierra la dirección del marcador
+  let iconBase = {
+    url: 'http://www.mobipalma.mobi/wp-content/uploads/2016/03/iconos-14.png',
+    scaledSize: new google.maps.Size(30, 32)
+  };
   // Muestra la posicion segun las coordenadas mencionadas
   let marker = new google.maps.Marker({
     position: coordinate,
-    map: map
+    map: map,
+    icon: iconBase,
+    animation: google.maps.Animation.BOUNCE
   });
 
   // Autocompletado
