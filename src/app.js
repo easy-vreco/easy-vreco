@@ -60,11 +60,11 @@ function initMap() {
   new google.maps.places.Autocomplete(startPoint);
   new google.maps.places.Autocomplete(endPoint);
 
-  var direccionService = new google.maps.DirectionsService;
-  var direccionDisplay = new google.maps.DirectionsRenderer;
+  let direccionService = new google.maps.DirectionsService;
+  let direccionDisplay = new google.maps.DirectionsRenderer;
 
-  var calcRoute = function(direccionService, direccionDisplay) {
-    var request = {
+  let calcRoute = function(direccionService, direccionDisplay) {
+    let request = {
       origin: startPoint.value,
       destination: endPoint.value,
       travelMode: 'DRIVING'
